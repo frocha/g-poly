@@ -1,7 +1,5 @@
 /* g-finder.c */
 
-/* insert (c)/licensing information) */
-
 #include "g-finder.h"
 /* include other impl specific header files */
 
@@ -10,7 +8,7 @@ static void g_finder_class_init (GFinderClass *klass);
 static void g_finder_init       (GFinder *obj);
 static void g_finder_finalize   (GObject *obj);
 
-/* list my signals  */
+/* list signals  */
 enum {
 	/* MY_SIGNAL_1, */
 	/* MY_SIGNAL_2, */
@@ -18,7 +16,7 @@ enum {
 };
 
 struct _GFinderPrivate {
-	/* my private members go here, e.g. */
+	/* private members go here, e.g. */
 	gboolean _frobnicate_mode;
 };
 #define G_FINDER_GET_PRIVATE(o)      (G_TYPE_INSTANCE_GET_PRIVATE((o), \
@@ -27,7 +25,7 @@ struct _GFinderPrivate {
 /* globals */
 static GObjectClass *parent_class = NULL;
 
-/* uncomment the following if you have defined any signals */
+/* uncomment the following if any signals are defined */
 /* static guint signals[LAST_SIGNAL] = {0}; */
 
 G_DEFINE_TYPE (GFinder, g_finder, G_TYPE_OBJECT);
@@ -44,11 +42,13 @@ g_finder_class_init (GFinderClass *klass)
 	g_type_class_add_private (gobject_class, sizeof(GFinderPrivate));
 
 	/* signal definitions go here, e.g.: */
-/* 	signals[MY_SIGNAL_1] = */
-/* 		g_signal_new ("my_signal_1",....); */
-/* 	signals[MY_SIGNAL_2] = */
-/* 		g_signal_new ("my_signal_2",....); */
-/* 	etc. */
+/*	signals[MY_SIGNAL_1] = */
+/*		g_signal_new ("my_signal_1",....); */
+/*	signals[MY_SIGNAL_2] = */
+/*		g_signal_new ("my_signal_2",....); */
+/*	etc. */
+
+    klass->do_action = g_finder_do_something;
 }
 
 static void
@@ -63,7 +63,7 @@ g_finder_init (GFinder *obj)
 static void
 g_finder_finalize (GObject *obj)
 {
-/* 	free/unref instance resources here */
+/*	free/unref instance resources here */
 	G_OBJECT_CLASS(parent_class)->finalize (obj);
 }
 
@@ -79,5 +79,14 @@ g_finder_new (void)
 void
 g_finder_do_something (GFinder *self, const gchar* param)
 {
-    g_message(param, "%s");
+    g_message("GFinder: %s", param);
+}
+
+
+void
+g_finder_do_action (GFinder *self, const gchar* param)
+{
+    g_return_if_fail (G_IS_FINDER (self));
+
+    G_FINDER_GET_CLASS (self)->do_action (self, param);
 }

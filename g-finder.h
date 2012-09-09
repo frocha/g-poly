@@ -1,5 +1,4 @@
 /* g-finder.h */
-/* insert (c)/licensing information) */
 
 #ifndef __G_FINDER_H__
 #define __G_FINDER_H__
@@ -33,6 +32,9 @@ struct _GFinderClass {
 	GObjectClass parent_class;
 	/* insert signal callback declarations, e.g. */
 	/* void (* my_event) (GFinder* obj); */
+
+	/* virtual public method */
+    void (*do_action) (GFinder *self, const gchar* param);
 };
 
 /* member functions */
@@ -42,10 +44,10 @@ GType        g_finder_get_type    (void) G_GNUC_CONST;
 /* if this is a kind of GtkWidget, it should probably return at GtkWidget* */
 GFinder*    g_finder_new         (void);
 
-/* fill in other public functions, e.g.: */
+/* fill in other public functions */
 void g_finder_do_something (GFinder *self, const gchar* param);
 /*	gboolean   g_finder_has_foo      (GFinder *self, gint value); */
-
+void g_finder_do_action (GFinder *self, const gchar* param);
 
 G_END_DECLS
 
