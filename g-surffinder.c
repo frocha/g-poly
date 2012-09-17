@@ -36,7 +36,6 @@ g_surffinder_class_init (GSURFFinderClass *klass)
 	GObjectClass *gobject_class;
 	gobject_class = (GObjectClass*) klass;
 
-	parent_class            = g_type_class_peek_parent (klass);
 	gobject_class->finalize = g_surffinder_finalize;
 
 	g_type_class_add_private (gobject_class, sizeof(GSURFFinderPrivate));
@@ -48,7 +47,8 @@ g_surffinder_class_init (GSURFFinderClass *klass)
 /*		g_signal_new ("my_signal_2",....); */
 /*	etc. */
 
-    parent_class->do_action = g_surffinder_do_something2;
+    GFinderClass *gfinder_class = (GFinderClass *)klass;
+    gfinder_class->do_action = g_surffinder_do_something2;
 }
 
 static void
