@@ -49,7 +49,7 @@ g_surffinder_class_init (GSURFFinderClass *klass)
 /*	etc. */
 
     GFinderClass *gfinder_class = (GFinderClass *)klass;
-    gfinder_class->do_action = (void*)g_surffinder_do_something2;
+    gfinder_class->optical_flow_image = (void*)g_surffinder_do_something2;
 }
 
 static void

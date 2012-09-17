@@ -34,7 +34,7 @@ struct _GFinderClass {
 	/* void (* my_event) (GFinder* obj); */
 
 	/* virtual public method */
-    void (*do_action) (GFinder *self, const gchar* param);
+    void (*optical_flow_image) (GFinder *self, const gchar* param);
 };
 
 /* member functions */
@@ -47,7 +47,7 @@ GFinder*    g_finder_new         (void);
 /* fill in other public functions */
 void g_finder_do_something (GFinder *self, const gchar* param);
 /*	gboolean   g_finder_has_foo      (GFinder *self, gint value); */
-void g_finder_do_action (GFinder *self, const gchar* param);
+void g_finder_optical_flow_image (GFinder *self, const gchar* param);
 
 G_END_DECLS
 

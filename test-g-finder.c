@@ -26,7 +26,7 @@ main (int argc, char* argv[])
     /* polymorphism */
 	GFinder *polyFinder;
 	polyFinder = G_FINDER(g_surffinder_new ());
-    g_finder_do_action(polyFinder, "I am doing an action");
+    g_finder_optical_flow_image(polyFinder, "I am doing an action");
 
 	return 0;
 }
