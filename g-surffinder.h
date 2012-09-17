@@ -4,6 +4,8 @@
 #define __G_SURFFINDER_H__
 
 #include "g-finder.h"
+#include <opencv/cv.h>
+
 /* other include files */
 
 G_BEGIN_DECLS

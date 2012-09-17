@@ -1,7 +1,7 @@
 # Makefile for testing GFinder
 
 test-g-finder: g-finder.o g-surffinder.o test-g-finder.o
-	$(CC) -o test-g-finder test-g-finder.o g-finder.o g-surffinder.o `pkg-config --libs gobject-2.0`
+	$(CC) -o test-g-finder test-g-finder.o g-finder.o g-surffinder.o `pkg-config --libs gobject-2.0 opencv`
 
 g-finder.o: g-finder.c g-finder.h
 	$(CC) -c g-finder.c -g -Wall `pkg-config --cflags gobject-2.0`

@@ -25,7 +25,7 @@ main (int argc, char* argv[])
 
     /* polymorphism */
 	GFinder *polyFinder;
-	polyFinder = g_surffinder_new ();
+	polyFinder = G_FINDER(g_surffinder_new ());
     g_finder_do_action(polyFinder, "I am doing an action");
 
 	return 0;
